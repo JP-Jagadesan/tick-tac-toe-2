@@ -20,8 +20,9 @@
     width: 100%;
     padding-top: 100%;
     position: relative;
-    background-color: #f0f0f0;
-    border: 2px solid #ccc;
+    background-color: #e0f7fa;
+    border: 2px solid #00838f;
+    transition: background-color 0.3s, border-color 0.3s;
   }
 
   .cell-content {
@@ -33,8 +34,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #006064;
   }
-  
+
+  .disabled {
+    background-color: #cfd8dc !important;
+    border-color: #b0bec5 !important;
+  }
+
+  .highlight {
+    background-color: #fff3e0;
+    border-color: #ffa726;
+  }
+
   .status {
     margin-top: 20px;
     font-size: 1.2rem;
@@ -44,6 +56,15 @@
     margin-top: 10px;
     padding: 10px 20px;
     font-size: 1rem;
+    background-color: #00838f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .reset-btn:hover {
+    background-color: #006064;
   }
 
   @media (max-width: 600px) {

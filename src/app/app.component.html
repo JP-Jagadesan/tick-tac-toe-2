@@ -1,10 +1,16 @@
 <div class="game-container">
   <h1 class="title">Tic Tac Toe</h1>
   <div class="board">
-    @for (cell of board; track $index) {
-      <div class="cell" (click)="makeMove($index)">
-        <span class="cell-content">{{ cell }}</span>
-      </div>
+    @for(cell of board;track $index ){
+    <div
+      [ngClass]="{
+        cell: true,
+        highlight: moveHistory[currentPlayer] | appDisabled : $index
+      }"
+      (click)="makeMove($index)"
+    >
+      <span class="cell-content">{{ cell }}</span>
+    </div>
     }
   </div>
   <p class="status">{{ statusMessage }}</p>
