@@ -22,20 +22,19 @@
     position: relative;
     background-color: #f0f0f0;
     border: 2px solid #ccc;
+  }
+
+  .cell-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-
-  .cell::before {
-    content: attr(data-content);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
+  
   .status {
     margin-top: 20px;
     font-size: 1.2rem;
