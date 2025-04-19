@@ -3,7 +3,7 @@
   <div class="board">
     @for (cell of board; track $index) {
       <div class="cell" (click)="makeMove($index)">
-        {{ cell }}
+        <span class="cell-content">{{ cell }}</span>
       </div>
     }
   </div>
