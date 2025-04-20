@@ -19,11 +19,17 @@ export class AppComponent {
 
   makeMove(index: number): void {
     const history = this.moveHistory[this.currentPlayer];
+    const disabledCell=!this.disable.transform(history, index)
     if (
       !this.board[index] &&
-      !this.checkWinner() &&
-      !this.disable.transform(history, index)
+      !this.checkWinner() && disabledCell
     ) {
+      if (history.length === 3) {
+        const removedIndex = history.shift();
+        if (removedIndex !== undefined) {
+          this.board[removedIndex] = '';
+        }
+      }
       this.board[index] = this.currentPlayer;
       history.push(index);
 
@@ -31,12 +37,6 @@ export class AppComponent {
       if (winner) {
         this.statusMessage = `Player ${winner} wins!`;
       } else {
-        if (history.length === 4) {
-          const removedIndex = history.shift();
-          if (removedIndex !== undefined) {
-            this.board[removedIndex] = '';
-          }
-        }
 
         this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'X';
         this.statusMessage = `Player ${this.currentPlayer}'s turn`;
